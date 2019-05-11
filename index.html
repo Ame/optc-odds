@@ -6,5 +6,32 @@
 </head>
   
 <body>
-<h1>OPTC Odds</titles>
+<h1>OPTC Sniping Odds</h1>
+<form>
+    Percentage chance of desired legend:<br>
+    <input type="text" name="chance"><br><br>
+    Are you playing on Global or Japan?<br>
+    <input type="radio" name="server" value=0.4 checked> Japan<br>
+    <input type="radio" name="server" value=0.35> Global<br><br>
+    Current legend rate multiplier:<br>
+    <input type="text" name="mulitplier"><br><br>
+    Number of single pulls (A multi is 11 single pulls):<br>
+    <input type="text" name="pulls"><br><br>
+    Number of guaranteed legends:<br>
+    <input type="text" name="legends"><br><br>
+    <input type="submit" value="Submit" onclick='calc();'><br><br>
+    <p id="chanceOfLegend"></p><br>
+    <p id="fifty"></p><br>
+    <p id="nine"></p><br>
+    <p id="ninenine"></p><br>
+    <p id="twenty"></p><br>
+</form>
+
+<script>
+    function calc(){
+        var base;
+        base = document.getElementById("server");
+        document.getElementById("chanceOfLegend").innerHTML = 5 + 6;
+    }
+</script>
 </body>
