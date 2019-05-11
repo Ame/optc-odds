@@ -9,30 +9,33 @@
 <h1>OPTC Sniping Odds</h1>
 <form>
     Percentage chance of desired legend:<br>
-    <input type="text" name="chance"><br><br>
+    <input type="text" id="chance">%<br><br>
     Are you playing on Global or Japan?<br>
-    <input type="radio" name="server" value=0.4 checked> Japan<br>
-    <input type="radio" name="server" value=0.35> Global<br><br>
+    <input type="radio" id="server" value=0.04 checked> Japan<br>
+    <input type="radio" id="server" value=0.035> Global<br><br>
     Current legend rate multiplier:<br>
-    <input type="text" name="mulitplier"><br><br>
+    <input type="text" id="multiplier" value=1><br><br>
     Number of single pulls (A multi is 11 single pulls):<br>
-    <input type="text" name="pulls"><br><br>
+    <input type="text" id="pulls" value=11><br><br>
     Number of guaranteed legends:<br>
-    <input type="text" name="legends"><br><br>
+    <input type="text" id="legends" value=0><br><br>
     <input type="button" value="Submit" onclick='calc();'><br><br>
-    <p id="chanceOfLegend"></p><br>
-    <p id="fifty"></p><br>
-    <p id="nine"></p><br>
-    <p id="ninenine"></p><br>
-    <p id="twenty"></p><br>
+    <p>Chance of getting the legend:</p>
+    <p id="chanceOfLegend"></p>
 </form>
 
 <script>
     function calc(){
         var base;
-        base = document.getElementById("server");
-        document.getElementById("chanceOfLegend").innerHTML = 5 + 6;
+        var rolls;
+        var legends;
+        var chance;
+        var curr=1;
+        base = document.getElementById("server").value * document.getElementById("multiplier").value;
+        rolls = parseFloat(document.getElementById("pulls").value);
+        legends = parseFloat(document.getElementById("legends").value);
+        chance = parseFloat(document.getElementById("chance").value)/100;
+        document.getElementById("chanceOfLegend").innerHTML = 1-Math.pow(1-chance, rolls-legends) * Math.pow(1-chance/base, legends);
     }
 </script>
 </body>
-
